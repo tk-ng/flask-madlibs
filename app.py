@@ -12,9 +12,5 @@ def home_page():
 
 @app.route("/story")
 def show_story():
-    place = request.args.get("place")
-    noun = request.args.get("noun")
-    verb = request.args.get("verb")
-    adjective = request.args.get("adjective")
-    plural_noun = request.args.get("plural_noun")
-    return render_template("story.html", place=place, noun=noun, verb=verb, adjective=adjective, plural_noun=plural_noun)
+    text = story.generate(request.args)
+    return render_template("story.html", text=text)
