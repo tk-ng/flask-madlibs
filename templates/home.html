@@ -1,0 +1,19 @@
+<!-- prettier-ignore -->
+{% extends 'base.html' %}
+
+{% block title %} Home Page {% endblock %}
+
+{% block content %}
+<h1>Madlibs</h1>
+<form action="/story">
+	{% for word in words %}
+	<div>
+		<label for="{{word}}">{{word}}:</label>
+		<input id="{{word}}" type="text" name="{{word}}" />
+	</div>
+	<br />
+	{% endfor %}
+	<button>Submit</button>
+	<button type="reset">Clear</button>
+</form>
+{% endblock %}
